@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 找不到啦~</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffcee7, #ff8aa2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+    user-select: none;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -40%;
+    left: -30%;
+    width: 160vw;
+    height: 160vh;
+    background: radial-gradient(circle at center, #ffd1e3, #ff5c94 80%);
+    filter: blur(180px);
+    opacity: 0.8;
+    animation: glowPulse 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes glowPulse {
+    0%, 100% {opacity: 0.8; transform: scale(1);}
+    50% {opacity: 0.6; transform: scale(1.05);}
+  }
+
+  .monster-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    z-index: 1;
+    animation: floatSway 5s ease-in-out infinite;
+  }
+
+  @keyframes floatSway {
+    0%, 100% { transform: translateY(0) rotate(0deg);}
+    50% { transform: translateY(-15px) rotate(3deg);}
+  }
+
+  h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 8rem;
+    margin: .4em 0 0.1em;
+    letter-spacing: 0.15em;
+    text-shadow:
+      0 0 10px #ff9cc2,
+      0 0 20px #ff6b8a,
+      0 0 30px #ff5472,
+      0 0 40px #ff3e5e;
+  }
+
+  p {
+    font-size: 1.7rem;
+    margin: 0 0 2.5em;
+    font-weight: 600;
+    text-shadow: 0 1px 5px rgba(255,50,85,0.5);
+  }
+
+  a {
+    position: relative;
+    background: linear-gradient(45deg, #ff5472, #ff6b8a);
+    padding: 1em 3em;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow:
+      0 5px 15px rgba(255, 83, 123, 0.7);
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+  a:hover {
+    background: linear-gradient(135deg, #ff88a5, #ff527b);
+    box-shadow:
+      0 8px 25px rgba(255, 122, 159, 0.9),
+      0 0 45px rgba(255,122,159,0.7);
+  }
+
+  .eye {
+    animation: blink 5s infinite;
+    transform-origin: center center;
+  }
+  .eye-right {
+    animation-delay: 2.5s;
+  }
+
+  @keyframes blink {
+    0%, 5%, 10%, 100% {
+      transform: scaleY(1);
+    }
+    6%, 9% {
+      transform: scaleY(0.1);
+    }
+  }
+
+  .pupil {
+    transition: transform 0.2s ease;
+  }
+
+  .nose {
+    animation: noseMove 3s infinite ease-in-out;
+  }
+  @keyframes noseMove {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(3px);
+    }
+  }
+
+  .mouth {
+    animation: mouthMove 4s infinite ease-in-out;
+  }
+  @keyframes mouthMove {
+    0%, 100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(0.98);
+    }
+  }
+
+  .horn-left, .horn-right {
+    transform-origin: bottom center;
+    animation: hornSwing 6s ease-in-out infinite;
+  }
+  .horn-right {
+    animation-delay: 3s;
+  }
+
+  @keyframes hornSwing {
+    0%, 100% { transform: rotate(0deg);}
+    50% { transform: rotate(6deg);}
+  }
+
+  .monster-wrapper svg {
+    filter: drop-shadow(0 6px 6px rgba(255,0,100,0.3));
+  }
+
+  @media(max-width: 400px) {
+    .monster-wrapper {
+      width: 220px;
+      height: 220px;
+    }
+    h1 {
+      font-size: 5rem;
+    }
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 2em;
+    }
+    a {
+      font-size: 1rem;
+      padding: 0.75em 2em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="monster-wrapper" aria-label="Cute monster illustration" role="img">
+  <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" >
+    <!-- 身体 -->
+    <ellipse cx="64" cy="80" rx="54" ry="44" fill="#ff6e91" />
+    <!-- 脸部渐变 -->
+    <radialGradient id="faceGradient" cx="64" cy="80" r="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff9ab3" />
+      <stop offset="100%" stop-color="#ff416c" />
+    </radialGradient>
+    <ellipse cx="64" cy="80" rx="54" ry="44" fill="url(#faceGradient)" opacity="0.6"/>
+
+    <!-- 角 -->
+    <g class="horn-left">
+      <path fill="#ffb7be" stroke="#ff527b" stroke-width="2" d="M30 10 Q25 50 45 35 Q25 44 30 10z"/>
+    </g>
+    <g class="horn-right">
+      <path fill="#ffb7be" stroke="#ff527b" stroke-width="2" d="M98 10 Q103 50 83 35 Q103 44 98 10z"/>
+    </g>
+
+    <!-- 身体底部圆润高光 -->
+    <ellipse cx="64" cy="120" rx="35" ry="9" fill="white" opacity="0.12" />
+
+    <!-- 左眼白 -->
+    <ellipse class="eye eye-left" cx="42" cy="58" rx="18" ry="16" fill="#fff" />
+    <!-- 右眼白 -->
+    <ellipse class="eye eye-right" cx="86" cy="58" rx="18" ry="16" fill="#fff" />
+    <!-- 左瞳孔 -->
+    <circle class="pupil" cx="42" cy="58" r="8" fill="#ff527b"/>
+    <!-- 右瞳孔 -->
+    <circle class="pupil" cx="86" cy="58" r="8" fill="#ff527b"/>
+
+    <!-- 鼻子 -->
+    <ellipse class="nose" cx="64" cy="75" rx="7" ry="5" fill="#ff2a62" />
+    <ellipse class="nose" cx="64" cy="75" rx="3" ry="2" fill="#ff557b" />
+
+    <!-- 嘴巴 -->
+    <path class="mouth" d="M45 95 Q64 110 83 95 Q80 100 64 105 Q48 100 45 95" fill="#ff395e" stroke="#ff2a62" stroke-width="2" />
+    <path class="mouth" d="M55 99 Q64 105 73 99" fill="#ff6b8a" />
+
+    <!-- 萌脸红晕 -->
+    <circle cx="32" cy="85" r="8" fill="#ff86a4" opacity="0.5" />
+    <circle cx="96" cy="85" r="8" fill="#ff86a4" opacity="0.5" />
+  </svg>
+</div>
+
+<h1>404</h1>
+<p>哎呀，小怪兽迷路啦~ 找不到你要的页面呢！</p>
+<a href="/">返回首页</a>
+
+<script>
+  const monster = document.querySelector('.monster-wrapper svg');
+  const pupils = monster.querySelectorAll('.pupil');
+
+  const maxOffset = 4;
+
+  function onMove(e) {
+    const rect = monster.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const dx = Math.min(maxOffset, Math.max(-maxOffset, e.clientX - centerX));
+    const dy = Math.min(maxOffset, Math.max(-maxOffset, e.clientY - centerY));
+
+    pupils.forEach(p => {
+      p.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+  }
+
+  function onLeave() {
+    pupils.forEach(p => {
+      p.style.transform = 'translate(0, 0)';
+    });
+  }
+
+  window.addEventListener('mousemove', onMove);
+  monster.addEventListener('mouseleave', onLeave);
+</script>
+
+</body>
+</html>
